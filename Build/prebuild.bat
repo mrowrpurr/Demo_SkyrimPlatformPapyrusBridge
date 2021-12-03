@@ -1,0 +1,1 @@
+robocopy Plugin\dist\ Platform\Plugins\ /e

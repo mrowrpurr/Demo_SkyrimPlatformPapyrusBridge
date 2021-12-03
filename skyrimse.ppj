@@ -1,0 +1,38 @@
+<?xml version='1.0'?>
+<PapyrusProject xmlns="PapyrusProject.xsd" 
+    Flags="TESV_Papyrus_Flags.flg" 
+    Game="sse"
+    Anonymize="false"
+    Output="Scripts" 
+    Optimize="false" 
+    Release="false" 
+    Zip="true"
+    Package="false"
+    Final="false">
+    <Variables>
+        <Variable Name="ModName" Value="SkyrimPlatformPapyrusBridge_Demo" />
+        <Variable Name="ModsFolder" Value="C:\Users\mrowr\Dropbox\Skyrim\Mods" />
+    </Variables>
+    <Imports>
+        <Import>@ModsFolder\SKSE64\Scripts\Source</Import>
+        <Import>@ModsFolder\SkyrimPlatformPapyrusBridge\Scripts\Source</Import>
+        <Import>C:\Steam\steamapps\common\Skyrim Special Edition\Data\Scripts\Source</Import>
+    </Imports>
+    <Folders>
+        <Folder>./Scripts/Source</Folder>
+    </Folders>
+    <ZipFiles Output="Build">
+        <ZipFile Name="@ModName" RootDir="." Compression="deflate">
+            <Include>PapyruSP_Demo.esp</Include>
+            <Match In="Scripts\Source">*.psc</Match>
+            <Match In="Scripts\">*.pex</Match>
+            <Match In="Platform\Plugins\">*.js</Match>
+        </ZipFile>
+    </ZipFiles>
+    <PreBuildEvent UseInBuild="true">
+        <Command>Build\prebuild.bat</Command>
+    </PreBuildEvent>
+    <PostBuildEvent UseInBuild="true">
+        <Command>Build\postbuild.bat</Command>
+    </PostBuildEvent>
+</PapyrusProject>
